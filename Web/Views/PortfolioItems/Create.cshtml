@@ -1,0 +1,87 @@
+﻿@model PortfolioViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<div style="
+        margin-left: 160px;
+        margin-right: 160px;
+        margin-top: 80px;
+        margin-bottom: 80px;
+        padding-left: 120px;
+        padding-right: 120px;
+        padding-top: 80px;
+        padding-bottom: 80px;
+    ">
+
+
+    <h1 class="page-section-heading text-right text-uppercase text-secondary mb-0">إضافة صنف </h1>
+
+    <div class="alert alert-danger" id="error-div2" style="display:none">
+
+        <span id="view-err2"></span>
+
+    </div>
+
+    <hr />
+    <div class="row page-section-heading text-right text-uppercase text-secondary mb-0">
+
+        <div class="col-md-4">
+            <form asp-action="Create" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="ProjectName" class="control-label"></label>
+                    <input asp-for="ProjectName" class="form-control" />
+                    <span asp-validation-for="ProjectName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label"></label>
+                    <input asp-for="Description" class="form-control" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Contact" class="control-label"></label>
+                    <input asp-for="Contact" class="form-control" />
+                    <span asp-validation-for="Contact" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ImageUrl" class="control-label"></label>
+                    <input type="file" asp-for="File" class="form-control" id="saveImage2" />
+                    <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="إضافة" class="btn btn-primary" id="save2" />
+
+                    <a asp-action="Index" class="btn btn-outline-dark">العودة للصفحة الرئيسية </a>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+
+</div>
+@*Save the old image --->
+    Step 1:-->>  id="save" ,
+    Step 2 -->>  id="saveImage"  ,
+    Step 3 -->>  <div class="alert alert-danger" id="error-div" style="display:none"><span id="view-err"></span> </div>
+    Step 4 -->>  add Files >>  jquery in Page >> _Layout ,
+    Step 5 -->>  @RenderSection("scripts",required:false) >> Page >> _Layout ,
+    Step 6 -->   V V V *@
+
+@section scripts {
+    <script>
+        $(function () {
+            $("#save2").click(function () {
+                if ($("#saveImage2").val() == "") {
+                    $("#error-div2").fadeIn();
+                    $("#view-err2").append("الرجاء اختيار صورة");
+                    return false;
+                }
+            });
+        });
+    </script>
+
+}

@@ -1,0 +1,60 @@
+﻿@model Core.Entities.PortfolioItem
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+<div style="
+        margin-left: 160px;
+        margin-right: 160px;
+        margin-top: 80px;
+        margin-bottom: 80px;
+        padding-left: 120px;
+        padding-right: 120px;
+        padding-top: 80px;
+        padding-bottom: 80px;
+    ">
+
+
+    <h1 class="page-section-heading text-right text-uppercase text-secondary mb-0">حذف الصنف </h1>
+
+    <h3 class="page-section-heading text-right text-uppercase text-secondary mb-0">هل أنت متأكد من حذف هذا الصنف?</h3>
+    <div>
+
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ProjectName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ProjectName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Contact)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Contact)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ImageUrl)
+            </dt>
+            <dd class="col-sm-10">
+                <img src="~/img/portfolio/@Model.ImageUrl" class="img-thumbnail" style="width:64px; height:64px;" />
+            </dd>
+        </dl>
+
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <input type="submit" value="حذف" class="btn btn-danger" /> |
+            <a asp-action="Index" class="btn btn-outline-dark">العودة للصفحة الرئيسية</a>
+        </form>
+    </div>
+
+</div>
