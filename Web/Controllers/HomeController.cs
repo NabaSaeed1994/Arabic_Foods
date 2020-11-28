@@ -15,13 +15,19 @@ namespace Web.Controllers
     {
         private readonly IUnitOfWork<Owner> _owner;
         private readonly IUnitOfWork<PortfolioItem> _portfolio;
-
+        private readonly IUnitOfWork<SignupModels> _signupModels;
+        private readonly IUnitOfWork<SigninModels> _signinModels;
         public HomeController(
             IUnitOfWork<Owner> owner,
-            IUnitOfWork<PortfolioItem> portfolio)
+            IUnitOfWork<PortfolioItem> portfolio,
+            IUnitOfWork<SignupModels> signupModels,
+            IUnitOfWork<SigninModels> signinModels)
         {
             _owner = owner;
             _portfolio = portfolio;
+            _signupModels = signupModels;
+            _signinModels = signinModels;
+
         }
         public IActionResult Index()
         {
@@ -79,5 +85,61 @@ namespace Web.Controllers
            
         }
 
+
+
+        ////[Route("signup")]
+        //[HttpGet]
+        //public IActionResult Signup()
+        //{
+        //    return View();
+        //}
+
+        ////[Route("signup")]
+        //[HttpPost]
+        //public IActionResult Signup(SignUpUserModel userModel)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        ModelState.Clear();
+        //    }
+
+        //    return View();
+        //}
+        
+        [HttpGet]
+        public IActionResult Signup()
+        {
+            return View();
+        }
+       
+        [HttpPost]
+        //public IActionResult Signup(SignUpUserModel userModel)
+        public IActionResult Signup(SignupModel  signup)
+        {
+            if (ModelState.IsValid)
+            {
+                ModelState.Clear();
+            }
+
+            return View();
+        }
+        
+        [HttpGet]
+        public IActionResult Signin()
+        {
+            return View();
+        }
+     
+        [HttpPost]
+        //public IActionResult Signup(SignUpUserModel userModel)
+        public IActionResult Signin(SigninModel signin)
+        {
+            return View();
+        }
+
+
+
     }
+
+
 }

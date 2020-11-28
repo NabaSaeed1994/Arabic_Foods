@@ -28,7 +28,7 @@ namespace Infrastructure.Migrations
                     Id = table.Column<Guid>(nullable: false, defaultValueSql: "NEWID()"),
                     ProjectName = table.Column<string>(nullable: false),
                     Description = table.Column<string>(nullable: false),
-                    ImageUrl = table.Column<string>(nullable: false),
+                    ImageUrl = table.Column<string>(nullable: true),
                     Contact = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
@@ -60,7 +60,7 @@ namespace Infrastructure.Migrations
             migrationBuilder.InsertData(
                 table: "Owner",
                 columns: new[] { "Id", "AddressId", "Avatar", "FullName", "Profil" },
-                values: new object[] { new Guid("d037b9a8-baab-461b-93db-40b674ed97c1"), null, "avatar.jpg", "Khalid ESSAADANI", "Microsoft MVP / .NET Consultant" });
+                values: new object[] { new Guid("a47a0457-6a24-4e3a-9840-888afe9ec16b"), null, "avatar.jpg", "Khalid ESSAADANI", "Microsoft MVP / .NET Consultant" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Owner_AddressId",

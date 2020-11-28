@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20201123015043_InitialCreate")]
+    [Migration("20201128051447_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -69,7 +69,7 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("d037b9a8-baab-461b-93db-40b674ed97c1"),
+                            Id = new Guid("a47a0457-6a24-4e3a-9840-888afe9ec16b"),
                             Avatar = "avatar.jpg",
                             FullName = "Khalid ESSAADANI",
                             Profil = "Microsoft MVP / .NET Consultant"
@@ -92,7 +92,6 @@ namespace Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImageUrl")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ProjectName")
